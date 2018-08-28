@@ -1,0 +1,13 @@
+<?DOCTYPE Html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul>
+            {% for Patient in object_list %}
+            <li><a href="{% url 'detail' Patient.id %}"> {{ Patient.IndexPatient }} </a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
