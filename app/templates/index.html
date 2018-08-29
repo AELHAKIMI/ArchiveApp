@@ -1,13 +1,10 @@
-<?DOCTYPE Html>
-<html>
-    <head>
+{% extends 'layout.html'%}
 
-    </head>
-    <body>
+{% block body%}
         <ul>
-            {% for Patient in object_list %}
-            <li><a href="{% url 'detail' Patient.id %}"> {{ Patient.IndexPatient }} </a></li>
+            {% for Patient in all_Patients %}
+            <li><a href="{% url 'detail' Patient.pk %}"> {{ Patient.NomPatient }} </a></li>
             {% endfor %}
         </ul>
-    </body>
-</html>
+{% endblock %}
+ 

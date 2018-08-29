@@ -6,6 +6,7 @@ from .models import Patient, Service, Dossier
 
 class IndexView(generic.ListView):
     template_name = 'index.html'
+    context_object_name = 'all_Patients'    
 
     def get_queryset(self):
         return Patient.objects.all()
