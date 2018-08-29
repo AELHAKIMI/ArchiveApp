@@ -15,3 +15,4 @@ class DetailView(generic.DetailView):
     model = Patient
     template_name = 'Detail.html'
     
+    
