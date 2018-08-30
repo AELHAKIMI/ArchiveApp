@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -12,6 +13,9 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.IndexPatient + " - " + self.NomPatient
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.pk})
 
 
 class Service(models.Model):
