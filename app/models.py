@@ -28,8 +28,8 @@ class Service(models.Model):
 
 class Dossier(models.Model):
     NumeroDossier   = models.CharField(max_length = 32, primary_key = True)
-    IndexPatient    = models.ForeignKey(Patient , on_delete = models.CASCADE )
-    Service         = models.ForeignKey(Service ,on_delete = models.CASCADE)
+    IndexPatient    = models.ForeignKey(Patient, on_delete = models.CASCADE)
+    Service         = models.ForeignKey(Service, on_delete = models.CASCADE)
 
     def __str__(self):
         return self.NumeroDossier + " - " +  str(self.IndexPatient)
