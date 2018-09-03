@@ -7,9 +7,10 @@
     {% load static %}    
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href= " {% static 'css/style.css' %} " >
-    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="  crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -22,7 +23,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="{% url 'index' %}" class="navbar-brand">Archive</a>
-
             </div>
             <div class="navbar-collapse collapse" id="topNavbar">
                 <ul class="nav navbar-nav">
@@ -35,10 +35,8 @@
                             <a href=" {% url 'Patient-add' %}">
                                 <span class="glyphicon glyphicon-plus " aria-hidden="true"></span>&nbsp; Nouveau Patient
                             </a>
-                    </li>
-                     
+                    </li>                     
                 </ul>
-
                 <form class="navbar-form navbar-left" role="search" method="GET" action="#">
                     <div class="form-group">
                         <input type="text" class="form-control" name="q" value="">
@@ -51,7 +49,6 @@
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Deconnexion
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -64,6 +61,5 @@
         </footer>
     </div>   
 {% block scripts %}{% endblock %}
-
 </body>
 </html>

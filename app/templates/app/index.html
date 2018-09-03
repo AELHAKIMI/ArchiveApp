@@ -1,10 +1,7 @@
-{% extends 'app/layout.html'%}
-
-{% block body%}
-        <ul>
-            {% for Patient in all_Patients %}
-            <li><a href="{% url 'detail' Patient.pk %}"> {{ Patient.NomPatient }} </a></li>
-            {% endfor %}
-        </ul>
+{% extends 'app/layout.html'%} {% block body%}
+<ul>
+    {% for Patient in all_Patients %}
+    <li><a href="{% url 'detail' Patient.pk %}"> {{ Patient.NomPatient }} </a></li>
+    {% endfor %}
+</ul>
 {% endblock %}
- 
