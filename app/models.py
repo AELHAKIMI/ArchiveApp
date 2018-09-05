@@ -20,11 +20,11 @@ class Patient(models.Model):
         return self.IndexPatient + " - " + self.NomPatient
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'pk': self.pk})
+        return reverse('detail-Patient', kwargs={'pk': self.pk})
 
 
 class Service(models.Model):
-    CodeService = models.CharField(max_length=16, primary_key=True, verbose_name='Code Service') 
+    CodeService = models.CharField(max_length=16, unique=True, verbose_name='Code Service')
     NomService = models.CharField(max_length=250, verbose_name='Description')
 
     class Meta:
@@ -33,9 +33,12 @@ class Service(models.Model):
     def __str__(self):
         return self.NomService
 
+    def get_absolute_url(self):
+        return reverse('detail-service', kwargs={'pk': self.pk})
+
 
 class Dossier(models.Model):
-    NumeroDossier = models.CharField(max_length=32, primary_key=True, verbose_name='Numero Dossier')
+    NumeroDossier = models.CharField(max_length=32, verbose_name='Numero Dossier')
     IndexPatient = models.ForeignKey(Patient, on_delete=models.CASCADE, verbose_name='Index Patient')
     Service = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name='Code Service')
 
@@ -43,3 +46,7 @@ class Dossier(models.Model):
 
     def __str__(self):
         return self.NumeroDossier + " - " + str(self.IndexPatient)
+
+    def get_absolute_url(self):
+        return reverse('detail-dossier', kwargs={'pk': self.pk})
+ 

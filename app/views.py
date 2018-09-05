@@ -12,11 +12,27 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Patient.objects.all()
 
-class DetailView(generic.DetailView):
+class PatientDetailView(generic.DetailView):
     model = Patient
-    template_name = 'app/Detail.html'
+    template_name = 'app/Patient/Detail_Patient.html'
 
 
-class PatientCreate(CreateView):
+class PatientCreateView(CreateView):
     model = Patient
     fields = ['IndexPatient', 'NomPatient', 'SexePatient', 'NumTelephone', 'AdressePatient']
+
+class DossierCreateView(CreateView):
+    model = Dossier
+    fields = '__all__'
+
+class DossierDetailView(generic.DetailView):
+    model = Dossier
+    template_name = 'app/Dossier/detail_Dossier.html'
+
+class ServiceDetailView(generic.DetailView):
+    model = Service
+    template_name = 'app/Service/detail_Service.html'
+
+class ServiceCreateView(CreateView):
+    model = Service   
+    fields = '__all__'
