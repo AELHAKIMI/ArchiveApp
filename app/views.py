@@ -9,6 +9,17 @@ class IndexView(generic.ListView):
     template_name = 'app/index.html'
     context_object_name = 'all_Patients'
 
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        Dossier_Titles = ('Numero', 'Annnee', 'Patient', 'Service')
+        Patient_Titles = ('Index', 'Nom', 'Sexe', 'Telephone', 'Adresse')
+        context.update({
+            'all_Dossiers': Dossier.objects.all(),
+            'Dossier_Titles': Dossier_Titles,
+            'Patient_Titles': Patient_Titles,                       
+        })
+        return context
+
     def get_queryset(self):
         return Patient.objects.all()
 

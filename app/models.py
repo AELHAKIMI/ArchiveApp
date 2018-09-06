@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 from django.urls import reverse
 
 # Create your models here.
@@ -37,15 +38,25 @@ class Service(models.Model):
         return reverse('detail-service', kwargs={'pk': self.pk})
 
 
+
+
+YEAR_CHOICES = []
+for r in range(1970, (datetime.datetime.now().year+1)):
+    YEAR_CHOICES.append((r,r))
+
 class Dossier(models.Model):
-    NumeroDossier = models.CharField(max_length=32, verbose_name='Numero Dossier')
+    NumeroDossier = models.IntegerField(verbose_name='Numero Dossier')
+    AnneeDossier = models.IntegerField(('Annee'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
     IndexPatient = models.ForeignKey(Patient, on_delete=models.CASCADE, verbose_name='Index Patient')
     Service = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name='Code Service')
 
-    verbose_name = 'Dossier'
+    class Meta:        
+        verbose_name = 'Dossier'
+        verbose_name_plural = 'Dossiers'
+        unique_together = ('NumeroDossier', 'AnneeDossier')    
 
     def __str__(self):
-        return self.NumeroDossier + " - " + str(self.IndexPatient)
+        return str(self.NumeroDossier) + "/" +str(self.AnneeDossier) + " - " + str(self.IndexPatient)
 
     def get_absolute_url(self):
         return reverse('detail-dossier', kwargs={'pk': self.pk})

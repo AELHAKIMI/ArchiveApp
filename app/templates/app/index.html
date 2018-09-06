@@ -1,7 +1,45 @@
 {% extends 'app/layout.html'%} {% block body%}
-<ul>
-    {% for Patient in all_Patients %}
-    <li><a href="{% url 'detail' Patient.pk %}"> {{ Patient.NomPatient }} </a></li>
-    {% endfor %}
-</ul>
+<h1>Patients:</h1>
+<table class="table">
+    <thead>
+        <tr>
+            {% for title in Patient_Titles %}
+                <th>{{title}}</th>        
+            {% endfor %}
+        </tr>
+    </thead> 
+    <tbody>
+        {% for Patient in all_Patients %}
+            <tr>
+                <td>{{Patient.IndexPatient}}</td>
+                <td>{{Patient.NomPatient}}</td>
+                <td>{{Patient.SexePatient}}</td>
+                <td>{{Patient.NumTelephone}}</td>
+                <td>{{Patient.AdressePatient}}</td>
+                <td> <a href="{% url 'detail-Patient' Patient.pk %}">Afficher</a></td>                   
+            </tr>            
+        {% endfor %}
+    </tbody>
+</table>
+<hr>
+<h1>Dossiers:</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                {% for title in Dossier_Titles %}
+                  <th>{{title}}</th>
+                {% endfor %}
+            </tr>            
+        </thead>
+        <tbody>
+            {% for Dossier in all_Dossiers %}
+              <td>{{Dossier.NumeroDossier}}</td>
+              <td>{{Dossier.AnneeDossier}}</td>
+              <td>{{Dossier.IndexPatient}}</td>
+              <td>{{Dossier.Service}}</td>
+              <td><a href="{% url 'detail-dossier' Dossier.pk %}"> Afficher </a></td>
+            {% endfor %}
+        </tbody>
+    </table>  
+
 {% endblock %}
