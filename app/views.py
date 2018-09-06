@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
+from django.urls import reverse_lazy
 from django.views import generic
 from .models import Patient, Service, Dossier
 
@@ -23,6 +24,8 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Patient.objects.all()
 
+#Patient Views
+
 class PatientDetailView(generic.DetailView):
     model = Patient
     template_name = 'app/Patient/Detail_Patient.html'
@@ -32,6 +35,16 @@ class PatientCreateView(CreateView):
     model = Patient
     fields = ['IndexPatient', 'NomPatient', 'SexePatient', 'NumTelephone', 'AdressePatient']
 
+class PatientUpdateView(UpdateView):
+    model = Patient
+    fields = ['IndexPatient', 'NomPatient', 'SexePatient', 'NumTelephone', 'AdressePatient']
+
+class PatientDeleteView(DeleteView):
+    model = Patient
+    success_url = reverse_lazy('index')
+    
+#Dossier Views
+
 class DossierCreateView(CreateView):
     model = Dossier
     fields = '__all__'
@@ -39,6 +52,18 @@ class DossierCreateView(CreateView):
 class DossierDetailView(generic.DetailView):
     model = Dossier
     template_name = 'app/Dossier/detail_Dossier.html'
+
+class DossierUpdateView(UpdateView):
+    model = Dossier
+    fields = '__all__'
+
+class DossierDeleteView(DeleteView):
+    model = Dossier
+    success_url = reverse_lazy('index')
+    
+
+
+#Service Views
 
 class ServiceDetailView(generic.DetailView):
     model = Service

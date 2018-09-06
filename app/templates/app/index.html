@@ -4,42 +4,51 @@
     <thead>
         <tr>
             {% for title in Patient_Titles %}
-                <th>{{title}}</th>        
+            <th>{{title}}</th>
             {% endfor %}
+            <th colspan="3"></th>
+            
         </tr>
-    </thead> 
+    </thead>
     <tbody>
         {% for Patient in all_Patients %}
-            <tr>
-                <td>{{Patient.IndexPatient}}</td>
-                <td>{{Patient.NomPatient}}</td>
-                <td>{{Patient.SexePatient}}</td>
-                <td>{{Patient.NumTelephone}}</td>
-                <td>{{Patient.AdressePatient}}</td>
-                <td> <a href="{% url 'detail-Patient' Patient.pk %}">Afficher</a></td>                   
-            </tr>            
+        <tr>
+            <td>{{Patient.IndexPatient}}</td>
+            <td>{{Patient.NomPatient}}</td>
+            <td>{{Patient.SexePatient}}</td>
+            <td>{{Patient.NumTelephone}}</td>
+            <td>{{Patient.AdressePatient}}</td>
+            <td> <a href="{% url 'detail-Patient' Patient.pk %}">Afficher</a></td>
+            <td> <a href="{% url 'update-Patient' Patient.pk %}">Modifier</a></td>
+            <td> <a href="{% url 'delete-Patient' Patient.pk %}">Supprimer</a></td>
+        </tr>
         {% endfor %}
     </tbody>
 </table>
 <hr>
 <h1>Dossiers:</h1>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                {% for title in Dossier_Titles %}
-                  <th>{{title}}</th>
-                {% endfor %}
-            </tr>            
-        </thead>
-        <tbody>
-            {% for Dossier in all_Dossiers %}
-              <td>{{Dossier.NumeroDossier}}</td>
-              <td>{{Dossier.AnneeDossier}}</td>
-              <td>{{Dossier.IndexPatient}}</td>
-              <td>{{Dossier.Service}}</td>
-              <td><a href="{% url 'detail-dossier' Dossier.pk %}"> Afficher </a></td>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            {% for title in Dossier_Titles %}
+            <th>{{title}}</th>
             {% endfor %}
-        </tbody>
-    </table>  
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Dossier in all_Dossiers %}
+        <tr>
+            <td>{{Dossier.NumeroDossier}}</td>
+            <td>{{Dossier.AnneeDossier}}</td>
+            <td>{{Dossier.IndexPatient}}</td>
+            <td>{{Dossier.Service}}</td>
+            <td><a href="{% url 'detail-dossier' Dossier.pk %}"> <span aria-hidden="true"> <i class="fa fa-chevron-circle-right"></i></span></a></td>
+            <td><a href="{% url 'update-dossier' Dossier.pk %}"> <span aria-hidden="true"> <i class="fa fa-pencil-square"></i></span></a></td>
+            <td><a href="{% url 'delete-dossier' Dossier.pk %}"> <span aria-hidden="true"> <i class="fa fa-trash"></i></span></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}
