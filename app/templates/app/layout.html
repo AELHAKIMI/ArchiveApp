@@ -6,30 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     {% load static %}
-    <!--link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
 </head>
 
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-success">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class=" nav-link navbar-brand" href="{% url 'index' %}">Archive</a>
-
-
+        <a class="nav-link navbar-brand " href="{% url 'index' %}">Archive</a>
         <div class="navbar-collapse collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -44,12 +39,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href=" {% url 'Dossier-add' %}">
-                            <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Nouveau Dossier
+                        <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Nouveau Dossier
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href=" {% url 'Service-add' %}">
-                            <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Nouveau Service
+                        <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Nouveau Service
                     </a>
                 </li>
             </ul>
@@ -57,14 +52,14 @@
                 <div class=" input-group-append">
                     <input class="form-control mr-sm-2 border-left-0 border" type="search" name="q" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-dark my-2 my-sm-0 border-left-0 border" type="submit">
-                            <i class="fa fa-search"></i>
+                        <i class="fa fa-search"></i>
                     </button>
                 </div>
             </form>
             <ul class="navbar-nav my-2 my-lg-0 glyphicon-align-right">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                            <span aria-hidden="true"> <i class="fa fa-power-off"></i></span>&nbsp; Deconnexion
+                        <span aria-hidden="true"> <i class="fa fa-power-off"></i></span>&nbsp; Deconnexion
                     </a>
                 </li>
             </ul>
