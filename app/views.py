@@ -12,8 +12,8 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        Dossier_Titles = ('#', 'Numero', 'Annnee', 'Patient', 'Service')
-        Patient_Titles = ('#', 'Index', 'Nom', 'Sexe', 'Telephone', 'Adresse')
+        Dossier_Titles = ('Numero', 'Annnee', 'Patient', 'Service')
+        Patient_Titles = ('Index', 'Nom', 'Sexe', 'Telephone', 'Adresse')
         context.update({
             'all_Dossiers': Dossier.objects.all(),
             'Dossier_Titles': Dossier_Titles,
