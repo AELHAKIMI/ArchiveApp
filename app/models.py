@@ -60,4 +60,15 @@ class Dossier(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail-dossier', kwargs={'pk': self.pk})
+    
+
+class DossierDocument(models.Model):
+    NumeroDossier = models.ForeignKey(Dossier, on_delete= models.CASCADE, verbose_name= 'Numero Dossier')
+    Title = models.CharField(max_length=250, verbose_name= 'Titre')
+    Document = models.FileField()
+    Description = models.CharField(max_length=1000, verbose_name='Description')
+
+    def get_absolute_url(self):
+        return reverse('detail-document', kwargs={'pk': self.pk})
+
  

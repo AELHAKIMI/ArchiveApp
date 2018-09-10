@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
 from django.views import generic
-from .models import Patient, Service, Dossier
+from .models import Patient, Service, Dossier, DossierDocument
 
 # Create your views here.
 
@@ -60,6 +60,15 @@ class DossierUpdateView(UpdateView):
 class DossierDeleteView(DeleteView):
     model = Dossier
     success_url = reverse_lazy('index')
+
+#DossierDocument Views
+class DossierDocumentDetailView(generic.DetailView):
+    model = DossierDocument
+    template_name = 'app/Dossier/Document/detail_document.html'
+
+class DossierDocumentAddView(CreateView):
+    model = DossierDocument
+    fields = '__all__'
     
 
 

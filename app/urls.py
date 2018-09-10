@@ -23,6 +23,10 @@ urlpatterns = [
     url(r'^Dossier/update/(?P<pk>[0-9]+)/$', views.DossierUpdateView.as_view(), name="update-dossier"),
     #/archive/Dossier/229                           DELETE
     url(r'^Dossier/(?P<pk>[0-9]+)/delete/$', views.DossierDeleteView.as_view(), name="delete-dossier"),
+
+    ###############################################  Document Urls ###################################
+    url(r'^Dossier/Document/add/$', views.DossierDocumentAddView.as_view(), name='Document-add'),
+    url(r'^Dossier/Document/(?P<pk>[0-9]+)/$', views.DossierDocumentDetailView.as_view(), name="detail-document"),
     ################################################ Service Urls ####################################
     #/archive/Service/add/
     url(r'^Service/add/$', views.ServiceCreateView.as_view(), name='Service-add'),

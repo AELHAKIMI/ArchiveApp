@@ -25,14 +25,14 @@ SECRET_KEY = '!vt*8vcbsurpgm2tv!)f+qz*!)pc9qy_45d%b)9f2vs-(i+&ik'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.105']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'widget_tweaks',
     'app',
+    'widget_tweaks',    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,3 +133,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep)+['media']))

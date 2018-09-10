@@ -32,20 +32,38 @@
                         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Accueil
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href=" {% url 'Patient-add' %}">
-                        <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Nouveau Patient
-                    </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Patient</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'Patient-add' %}">
+                            <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Index Patient
+                        </a>
+                        <a class="dropdown-item" href="#">Historique</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"></a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href=" {% url 'Dossier-add' %}">
-                        <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Nouveau Dossier
-                    </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dossier</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'Dossier-add' %}">
+                            <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Nouveau Dossier
+                        </a>
+                        <a class="dropdown-item" href="#">Historique</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"></a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href=" {% url 'Service-add' %}">
-                        <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Nouveau Service
-                    </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Service</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'Service-add' %}">
+                            <span aria-hidden="true"> <i class="fa fa-plus"></i></span>&nbsp; Ajouter Service
+                        </a>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"></a>
+                    </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" role="search" method="GET" action="#">
@@ -57,10 +75,14 @@
                 </div>
             </form>
             <ul class="navbar-nav my-2 my-lg-0 glyphicon-align-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span aria-hidden="true"> <i class="fa fa-power-off"></i></span>&nbsp; Deconnexion
-                    </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Username</a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Changer Mot de passe</a>
+                        <a class="dropdown-item" href="#">Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Deconnexion</a>
+                    </div>
                 </li>
             </ul>
 
@@ -68,12 +90,7 @@
     </nav>
     <div class="container body-content">
         {% block body %}{% endblock %}
-        <hr/>
-        <footer class="fixed-bottom">
-            <p>&copy; {{ year }} - Archive Application</p>
-        </footer>
     </div>
-
     {% block scripts %} {% endblock %}
 </body>
 

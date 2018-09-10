@@ -8,3 +8,4 @@ class PatientForm(forms.Form):
     fields = '__all__'
 
     class Meta:
+        
